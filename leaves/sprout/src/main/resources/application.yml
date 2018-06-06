@@ -1,0 +1,8 @@
+spring:
+  profiles:
+   active: dev
+  appplication:
+    name: elventree
+server:
+  port: 8888
+

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xs:schema
+        xmlns="http://www.fhj.com/schema/yhwh"
+        xmlns:xs="http://www.w3.org/2001/XMLSchema"
+        xmlns:beans="http://www.springframework.org/schema/beans"
+        targetNamespace="http://www.fhj.com/schema/yhwh"
+        elementFormDefault="qualified" version="1.0"
+>
+    <xs:import namespace="http://www.w3.org/XML/1998/namespace"/>
+    <xs:import namespace="http://www.springframework.org/schema/beans"
+               schemaLocation="http://www.springframework.org/schema/beans/spring-beans.xsd"/>
+
+    <xs:simpleType name="paramsNameType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="request"/>
+            <xs:enumeration value="response"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:attributeGroup name="commonAttr">
+        <xs:attribute name="id" type="xs:string" use="required"/>
+        <xs:attribute name="type" type="xs:string"/>
+        <xs:attribute name="name" type="xs:string"/>
+    </xs:attributeGroup>
+
+    <xs:element name="param">
+        <xs:complexType>
+            <xs:attributeGroup ref="commonAttr"/>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="params">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                    <xs:element ref="param"/>
+                </xs:choice>
+            </xs:sequence>
+            <xs:attribute name="id" type="paramsNameType" use="required"/>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="executeType">
+        <xs:complexContent>
+            <xs:extension base="beans:identifiedType">
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                    <xs:element ref="beans:property"/>
+                    <xs:element ref="beans:ref"/>
+                </xs:choice>
+                <xs:attributeGroup ref="beans:beanAttributes"/>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:element name="logic">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:choice minOccurs="2" maxOccurs="2">
+                    <xs:element ref="params"/>
+                </xs:choice>
+                <xs:choice minOccurs="1" maxOccurs="1">
+                    <xs:element ref="beans:bean"/>
+                </xs:choice>
+            </xs:sequence>
+            <xs:attribute name="id" type="xs:string"/>
+            <xs:attribute name="flowId" type="xs:string"/>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="stepType">
+        <xs:sequence>
+            <xs:element name="step" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:element name="flow">
+        <xs:complexType>
+            <xs:sequence>
+                    <xs:element name="init" type="stepType"/>
+                    <xs:element name="prepare" type="stepType"/>
+                    <xs:element name="logicRef" type="stepType"/>
+                    <xs:element name="end" type="stepType"/>
+            </xs:sequence>
+            <xs:attribute name="id" type="xs:string" />
+        </xs:complexType>
+    </xs:element>
+
+
+</xs:schema>
+

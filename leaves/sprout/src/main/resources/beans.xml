@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:fhj="http://www.fhj.com/schema/yhwh"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/util
+       http://www.springframework.org/schema/util/spring-util.xsd
+       http://www.fhj.com/schema/yhwh
+       http://www.fhj.com/schema/yhwh/yhwh.xsd">
+
+    <import resource="classpath:/base/*"/>
+
+    <util:map id="errorCode">
+        <entry key="a" value="b"/>
+    </util:map>
+
+    <fhj:logic id="logic" flowId="sdfsdf">
+        <fhj:params id="request">
+            <fhj:param id="阿斯顿发射点" type="s"/>
+            <fhj:param id="sdfdasf" type="ssdfsdf"/>
+        </fhj:params>
+        <fhj:params id="response">
+            <fhj:param id="asdfa" type="fdsas"/>
+            <fhj:param id="asdfsadf" type="saasdfsdf"/>
+        </fhj:params>
+        <bean id="test" class="com.fhj.elventree.bean.Test" parent="aa">
+            <property name="map" ref="errorCode"/>
+            <property name="gf" value="ffff"/>
+        </bean>
+    </fhj:logic>
+
+</beans>

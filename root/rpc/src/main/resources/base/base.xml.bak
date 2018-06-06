@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:fhj="http://www.fhj.com/schema/yhwh"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/util
+       http://www.springframework.org/schema/util/spring-util.xsd
+       http://www.fhj.com/schema/yhwh
+       http://www.fhj.com/schema/yhwh/yhwh.xsd">
+
+    <!--<bean id="baseDispitcher" class="com.fhj.elventreetree.dispitch.BaseDispitcher">-->
+        <!--<property name="taskMap" ref="taskMap"/>-->
+    <!--</bean>-->
+
+
+    <fhj:flow id="ds">
+        <fhj:init>
+            <fhj:step>1</fhj:step>
+            <fhj:step>2</fhj:step>
+            <fhj:step>3</fhj:step>
+        </fhj:init>
+        <fhj:prepare>
+            <fhj:step>1sa</fhj:step>
+            <fhj:step>2d</fhj:step>
+            <fhj:step>3fdsa</fhj:step>
+        </fhj:prepare>
+        <fhj:logicRef>
+            <fhj:step>ads1</fhj:step>
+            <fhj:step>ad2</fhj:step>
+            <fhj:step>dfa3</fhj:step>
+        </fhj:logicRef>
+        <fhj:end>
+            <fhj:step>ssdf1fs</fhj:step>
+            <fhj:step>s2f</fhj:step>
+            <fhj:step>asdfe3ewda</fhj:step>
+        </fhj:end>
+    </fhj:flow>
+</beans>

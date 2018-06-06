@@ -1,0 +1,12 @@
+spring:
+  profiles:
+   active: dev
+  appplication:
+    name: mesophyll
+server:
+  port: 7777
+
+elventree:
+  router: http://127.0.0.1:8888/hello/hello
+
+
